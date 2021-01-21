@@ -1,381 +1,527 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Parteien</title>
-</head>
-<body>
-<a href="index.html">Zurück zur Startseite</a>
-<h1>Parteien in der EU</h1>
-<h2>Übersicht über die Parteien:</h2>
-<table>
-    <thead>
-    <tr style="background:lightgrey">
-        <th colspan="3">
-            Name
-        </th>
-        <th>
-            Ausrichtung
-        </th>
-        <th>
-            Gründung
-        </th>
-        <th>
-            Mitglieder im Europaparlament
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr style="background:white">
-        <td style="text-align:center">
-                <figure>
-                    <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:EPP-EVP-Logo-German-2011.svg">
-                        <img alt="Deutsches Logo der Europäischen Volkspartei" height="60" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/EPP-EVP-Logo-German-2011.svg">
+  </head>
+  <body>
+    <header class="headerflex">
+      <div>
+        <a href="index.html"><img src="images/flagge.png" alt="flagge" /></a>
+      </div>
+      <div>
+        <a href="index.html">Die EU</a>
+      </div>
+      <div>
+        <a href="organe.html">Organe</a>
+      </div>
+      <div>
+        <a href="mitgliedsstaaten.html">Mitgliedsstaaten</a>
+      </div>
+      <div>
+        <a href="parteien.html">Parteien</a>
+      </div>
+      <div>
+        <a href="quiz.html">Quiz</a>
+      </div>
+    </header>
+    <div class="gridcontainer">
+      <div class="heading-area">
+        <h1>Parteien in der EU</h1>
+      </div>
+      <div class="content">
+        <h2 id="uebersicht">Übersicht über die Parteien:</h2>
+        <div class="parteienTabelleContainer">
+          <table class="parteienTabelle">
+            <thead>
+              <tr>
+                <th colspan="3">
+                  Name
+                </th>
+                <th>
+                  Ausrichtung
+                </th>
+                <th>
+                  Gründung
+                </th>
+                <th>
+                  Mitglieder im Europaparlament
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: center;">
+                  <figure>
+                    <a
+                      href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:EPP-EVP-Logo-German-2011.svg"
+                    >
+                      <img
+                        alt="Deutsches Logo der Europäischen Volkspartei"
+                        height="60"
+                        src="https://upload.wikimedia.org/wikipedia/commons/5/5d/EPP-EVP-Logo-German-2011.svg"
+                      />
                     </a>
                     <figcaption>Deutsches EVP Logo</figcaption>
-                </figure>
+                  </figure>
+                </td>
+                <td style="text-align: center;" class="EVP">
+                  <b>EVP</b>
+                </td>
+                <td>
+                  <b>Europäische Volkspartei</b>
+                </td>
+                <td>
+                  <ul>
+                    <li>
+                      christlich-demokratisch
+                    </li>
+                    <li>
+                      konservativ
+                    </li>
+                  </ul>
+                </td>
+                <td style="text-align: center;">
+                  1976
+                </td>
+                <td style="text-align: center;">
+                  181/705
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">
+                  <figure>
+                    <a
+                      href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:Logo_SPE-dt-4c.jpg"
+                    >
+                      <img
+                        alt="Deutsches SPE Logo"
+                        height="60"
+                        src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Logo_SPE-dt-4c.jpg"
+                      />
+                    </a>
+                    <figcaption>
+                      Deutsches SPE Logo
+                    </figcaption>
+                  </figure>
+                </td>
+                <td style="text-align: center;" class="SPE">
+                  <b>SPE</b>
+                </td>
+                <td>
+                  <b>Sozialdemokratische Partei Europas</b>
+                </td>
+                <td>
+                  <ul>
+                    <li>
+                      sozialdemokratisch
+                    </li>
+                  </ul>
+                </td>
+                <td style="text-align: center;">
+                  1992
+                </td>
+                <td style="text-align: center;">
+                  141/705
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">
+                  <figure>
+                    <a
+                      href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:ALDE-Party-Logo-mitWeissUntergrund-Ausschnitt.png"
+                    >
+                      <img
+                        alt="ALDE Party Logo"
+                        height="60"
+                        src="https://upload.wikimedia.org/wikipedia/commons/c/c3/ALDE-Party-Logo-mitWeissUntergrund-Ausschnitt.png"
+                      />
+                    </a>
+                    <figcaption>
+                      ALDE Party Logo
+                    </figcaption>
+                  </figure>
+                </td>
+                <td style="text-align: center;" class="ALDE">
+                  <b>ALDE</b>
+                </td>
+                <td>
+                  <b>Allianz der Liberalen und Demokraten für Europa</b>
+                </td>
+                <td>
+                  <ul>
+                    <li>
+                      liberal
+                    </li>
+                  </ul>
+                </td>
+                <td style="text-align: center;">
+                  1976
+                </td>
+                <td style="text-align: center;">
+                  66/705
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center;"></td>
+                <td style="text-align: center;" class="IDP">
+                  <b>IDP</b>
+                </td>
+                <td>
+                  <b>Identität und Demokratie Partei</b>
+                </td>
+                <td>
+                  <ul>
+                    <li>europaskeptisch</li>
+                    <li>rechtsextrem</li>
+                    <li>nationalistisch</li>
+                  </ul>
+                </td>
+                <td style="text-align: center;">
+                  2014
+                </td>
+                <td style="text-align: center;">
+                  60/705
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">
+                  <figure>
+                    <a
+                      href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:EGP-Logo_2017.png"
+                    >
+                      <img
+                        alt="EGP-Logo 2017.png"
+                        height="60"
+                        src="https://upload.wikimedia.org/wikipedia/commons/1/19/EGP-Logo_2017.png"
+                    /></a>
 
-        </td>
-        <td style="text-align:center" bgcolor="#99CCFF">
-            <b>EVP</b>
-        </td>
-        <td>
-            <b>Europäische Volkspartei</b>
-        </td>
-        <td>
-            <ul>
-                <li>
-                    christlich-demokratisch
-                </li>
-                <li>
-                    konservativ
-                </li>
-            </ul>
-        </td>
-        <td style="text-align:center">
-            1976
-        </td>
-        <td style="text-align:center">
-            181/705
-        </td>
-    </tr>
-    <tr style="background:lightgrey">
-        <td style="text-align:center">
-            <figure>
-                <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:Logo_SPE-dt-4c.jpg">
-                    <img alt="Deutsches SPE Logo" height="60" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Logo_SPE-dt-4c.jpg">
-                </a>
-                <figcaption>
-                    Deutsches SPE Logo
-                </figcaption>
-            </figure>
-        </td>
-        <td style="text-align:center" bgcolor="#ffcccc">
-            <b>SPE</b>
-        </td>
-        <td>
-            <b>Sozialdemokratische Partei Europas</b>
-        </td>
-        <td>
-            <ul>
-                <li>
-                    sozialdemokratisch
-                </li>
-            </ul>
-        </td>
-        <td style="text-align:center">
-            1992
-        </td>
-        <td style="text-align:center">
-            141/705
-        </td>
-    </tr>
-    <tr style="background:white">
-        <td style="text-align:center">
-            <figure>
-                <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:ALDE-Party-Logo-mitWeissUntergrund-Ausschnitt.png" >
-                    <img alt="ALDE Party Logo" height="60" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/ALDE-Party-Logo-mitWeissUntergrund-Ausschnitt.png">
-                </a>
-                <figcaption>
-                    ALDE Party Logo
-                </figcaption>
-            </figure>
-        </td>
-        <td style="text-align:center" bgcolor="#ffff99">
-            <b>ALDE</b>
-        </td>
-        <td>
-            <b>Allianz der Liberalen und Demokraten für Europa</b>
-        </td>
-        <td>
-            <ul>
-                <li>
-                    liberal
-                </li>
-            </ul>
-        </td>
-        <td style="text-align:center">
-            1976
-        </td>
-        <td style="text-align:center">
-            66/705
-        </td>
-    </tr>
-    <tr style="background:lightgrey">
-        <td style="text-align:center">
-        </td>
-        <td style="text-align:center" bgcolor="#6a7999">
-            <b>IDP</b>
-        </td>
-        <td>
-            <b>Identität und Demokratie Partei</b>
-        </td>
-        <td>
-            <ul>
-                <li>europaskeptisch</li>
-                <li>rechtsextrem</li>
-                <li>nationalistisch</li>
-            </ul>
-        </td>
-        <td style="text-align:center">
-            2014
-        </td>
-        <td style="text-align:center">
-            60/705
-        </td>
-    </tr>
-    <tr style="background:white">
-        <td style="text-align:center">
-            <figure>
-            <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:EGP-Logo_2017.png">
-                <img alt="EGP-Logo 2017.png" height="60" src="https://upload.wikimedia.org/wikipedia/commons/1/19/EGP-Logo_2017.png"></a>
-                <figcaption>
-                    EGP Logo
-                </figcaption>
-            </figure>
-        </td>
-        <td style="text-align:center" bgcolor="#9bd29b">
-            <b>EGP</b>
-        </td>
-        <td>
-            <b>Europäische Grüne Partei</b>
-        </td>
-        <td>
-            <ul>
-                <li>grün</li>
-            </ul>
-        </td>
-        <td style="text-align:center">
-            2004
-        </td>
-        <td style="text-align:center">
-            54/705
-        </td>
-    </tr>
-    <tr style="background:lightgrey">
-        <td style="text-align:center">
-            <figure>
-                <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:ECR_Party_logo.png">
-                    <img alt="ECR Logo" height="60" src="https://upload.wikimedia.org/wikipedia/commons/1/1f/ECR_Party_logo.png">
-                </a>
-                <figcaption>
-                    ECR Party Logo
-                </figcaption>
-            </figure>
-        </td>
-        <td style="text-align:center" bgcolor="#5597c4">
-            <b>EKR</b>
-        </td>
-        <td>
-            <b>Europäische Konservative und Reformer</b>
-        </td>
-        <td>
-            <ul>
-                <li>europaskeptisch</li>
-                <li>konservativ</li>
-            </ul>
-        </td>
-        <td style="text-align:center">
-            2009
-        </td>
-        <td style="text-align:center">
-            52/705
-        </td>
-    </tr>
-    <tr style="background:white">
-        <td style="text-align:center">
-            <figure>
-                <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:Europ%C3%A4ische_Linke.svg">
-                    <img alt="Europäische Linke Logo" height="60" src="https://upload.wikimedia.org/wikipedia/de/0/07/Europ%C3%A4ische_Linke.svg">
-                </a>
-                <figcaption>
-                    EL Logo
-                </figcaption>
-            </figure>
-        </td>
-        <td style="text-align:center" bgcolor="#d2a6bf">
-            <b>EL</b>
-        </td>
-        <td>
-            <b>Partei der Europäischen Linken</b>
-        </td>
-        <td>
-            <ul>
-                <li>links</li>
-                <li>sozialistisch</li>
-            </ul>
-        </td>
-        <td style="text-align:center">
-            2004
-        </td>
-        <td style="text-align:center">
-            20/705
-        </td>
-    </tr>
-    <tr style="background:lightgrey">
-        <td style="text-align:center">
-            <figure>
-                <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Free_Alliance.svg">
-                    <img alt="European Free Alliance Logo" height="60" src="https://upload.wikimedia.org/wikipedia/commons/6/69/European_Free_Alliance.svg">
-                </a>
-                <figcaption>
-                    EFA Logo
-                </figcaption>
-            </figure>
-        </td>
-        <td style="text-align:center" bgcolor="#af50cf">
-            <b>EFA</b>
-        </td>
-        <td>
-            <b>Europäische Freie Allianz</b>
-        </td>
-        <td>
-            <ul>
-                <li>Regionalparteien</li>
-            </ul>
-        </td>
-        <td style="text-align:center">
-            1981
-        </td>
-        <td style="text-align:center">
-            9/705
-        </td>
-    </tr>
-    <tr style="background:white">
-        <td style="text-align:center">
-            <figure>
-            <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Democratic_Party_Logo.svg">
-                <img alt="European Democratic Party Logo" height="60" src="https://upload.wikimedia.org/wikipedia/de/7/75/European_Democratic_Party_Logo.svg">
+                    <figcaption>
+                      EGP Logo
+                    </figcaption>
+                  </figure>
+                </td>
+                <td style="text-align: center;" class="EGP">
+                  <b>EGP</b>
+                </td>
+                <td>
+                  <b>Europäische Grüne Partei</b>
+                </td>
+                <td>
+                  <ul>
+                    <li>grün</li>
+                  </ul>
+                </td>
+                <td style="text-align: center;">
+                  2004
+                </td>
+                <td style="text-align: center;">
+                  54/705
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">
+                  <figure>
+                    <a
+                      href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:ECR_Party_logo.png"
+                    >
+                      <img
+                        alt="ECR Logo"
+                        height="60"
+                        src="https://upload.wikimedia.org/wikipedia/commons/1/1f/ECR_Party_logo.png"
+                      />
+                    </a>
+                    <figcaption>
+                      ECR Party Logo
+                    </figcaption>
+                  </figure>
+                </td>
+                <td style="text-align: center;" class="ECR">
+                  <b>EKR</b>
+                </td>
+                <td>
+                  <b>Europäische Konservative und Reformer</b>
+                </td>
+                <td>
+                  <ul>
+                    <li>europaskeptisch</li>
+                    <li>konservativ</li>
+                  </ul>
+                </td>
+                <td style="text-align: center;">
+                  2009
+                </td>
+                <td style="text-align: center;">
+                  52/705
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">
+                  <figure>
+                    <a
+                      href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:Europ%C3%A4ische_Linke.svg"
+                    >
+                      <img
+                        alt="Europäische Linke Logo"
+                        height="60"
+                        src="https://upload.wikimedia.org/wikipedia/de/0/07/Europ%C3%A4ische_Linke.svg"
+                      />
+                    </a>
+                    <figcaption>
+                      EL Logo
+                    </figcaption>
+                  </figure>
+                </td>
+                <td style="text-align: center;" class="EL">
+                  <b>EL</b>
+                </td>
+                <td>
+                  <b>Partei der Europäischen Linken</b>
+                </td>
+                <td>
+                  <ul>
+                    <li>links</li>
+                    <li>sozialistisch</li>
+                  </ul>
+                </td>
+                <td style="text-align: center;">
+                  2004
+                </td>
+                <td style="text-align: center;">
+                  20/705
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">
+                  <figure>
+                    <a
+                      href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Free_Alliance.svg"
+                    >
+                      <img
+                        alt="European Free Alliance Logo"
+                        height="60"
+                        src="https://upload.wikimedia.org/wikipedia/commons/6/69/European_Free_Alliance.svg"
+                      />
+                    </a>
+                    <figcaption>
+                      EFA Logo
+                    </figcaption>
+                  </figure>
+                </td>
+                <td style="text-align: center;" class="EFA">
+                  <b>EFA</b>
+                </td>
+                <td>
+                  <b>Europäische Freie Allianz</b>
+                </td>
+                <td>
+                  <ul>
+                    <li>Regionalparteien</li>
+                  </ul>
+                </td>
+                <td style="text-align: center;">
+                  1981
+                </td>
+                <td style="text-align: center;">
+                  9/705
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">
+                  <figure>
+                    <a
+                      href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Democratic_Party_Logo.svg"
+                    >
+                      <img
+                        alt="European Democratic Party Logo"
+                        height="60"
+                        src="https://upload.wikimedia.org/wikipedia/de/7/75/European_Democratic_Party_Logo.svg"
+                      />
+                    </a>
+                    <figcaption>
+                      EDP Logo
+                    </figcaption>
+                  </figure>
+                </td>
+                <td style="text-align: center;" class="EDP">
+                  <b>EDP</b>
+                </td>
+                <td>
+                  <b>Europäische Demokratische Partei</b>
+                </td>
+                <td>
+                  <ul>
+                    <li>zentristisch</li>
+                  </ul>
+                </td>
+                <td style="text-align: center;">
+                  2004
+                </td>
+                <td style="text-align: center;">
+                  10/705
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">
+                  <figure>
+                    <a
+                      href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Christian_Political_Movement_Logo.svg"
+                    >
+                      <img
+                        alt="European Christian Political Movement Logo"
+                        height="60"
+                        src="https://upload.wikimedia.org/wikipedia/de/3/36/European_Christian_Political_Movement_Logo.svg"
+                      />
+                    </a>
+                    <figcaption>
+                      ECPM Logo
+                    </figcaption>
+                  </figure>
+                </td>
+                <td style="text-align: center;" class="ECPM"><b>ECPM</b></td>
+                <td><b>Europäische Christliche Politische Bewegung</b></td>
+                <td>
+                  <ul>
+                    <li>christlich-konservativ</li>
+                  </ul>
+                </td>
+                <td style="text-align: center;">
+                  2005
+                </td>
+                <td style="text-align: center;">
+                  4/705
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          <b>Quelle:</b>
+          <a
+            href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei"
+            >Wikipedia</a
+          >, Letzter Zugriff: 10.01.2021
+        </p>
+        <div>
+          <h2 id="bildquellen">Bildquellen:</h2>
+          <p></p>
+          <p>
+            Deutsches EVP Logo,
+            <a
+              href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:EPP-EVP-Logo-German-2011.svg"
+            >
+              https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:EPP-EVP-Logo-German-2011.svg
             </a>
-                <figcaption>
-                    EDP Logo
-                </figcaption>
-            </figure>
-        </td>
-        <td style="text-align:center" bgcolor="#f0c67d">
-            <b>EDP</b>
-        </td>
-        <td>
-            <b>Europäische Demokratische Partei</b>
-        </td>
-        <td>
-            <ul>
-                <li>zentristisch</li>
-            </ul>
-        </td>
-        <td style="text-align:center">
-            2004
-        </td>
-        <td style="text-align:center">
-            10/705
-        </td>
-    </tr>
-    <tr style="background:lightgrey">
-        <td style="text-align:center">
-            <figure>
-            <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Christian_Political_Movement_Logo.svg">
-                <img alt="European Christian Political Movement Logo" height="60" src="https://upload.wikimedia.org/wikipedia/de/3/36/European_Christian_Political_Movement_Logo.svg">
-            </a>
-                <figcaption>
-                    ECPM Logo
-                </figcaption>
-            </figure>
-        </td>
-        <td style="text-align:center" bgcolor="#7678b3"><b>ECPM</b>
-        </td>
-        <td><b>Europäische Christliche Politische Bewegung</b>
-        </td>
-        <td>
-            <ul>
-                <li>christlich-konservativ</li>
-            </ul>
-        </td>
-        <td style="text-align:center">
-            2005
-        </td>
-        <td style="text-align:center">
-            4/705
-        </td>
-    </tr></tbody></table>
-    <p> <b>Quelle:</b> <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei">Wikipedia</a>, Letzter Zugriff: 10.01.2021</p>
-    <div>
-        <p> <b>Bildquellen:</b> <p>
-           <p>Deutsches EVP Logo,
-        <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:EPP-EVP-Logo-German-2011.svg">
-            https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:EPP-EVP-Logo-German-2011.svg
-        </a>
-        , Autor: European People's Party, Letzter Zugriff: 11.01.2021</p>
+            , Autor: European People's Party, Letzter Zugriff: 11.01.2021
+          </p>
 
-        <p>Deutsches SPE Logo,
-            <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:Logo_SPE-dt-4c.jpg">
-                https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:Logo_SPE-dt-4c.jpg
+          <p>
+            Deutsches SPE Logo,
+            <a
+              href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:Logo_SPE-dt-4c.jpg"
+            >
+              https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:Logo_SPE-dt-4c.jpg
             </a>
-            , Autor: Xabi Collados , Lizenz: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, Letzter Zugriff: 11.01.2021</p>
+            , Autor: Xabi Collados , Lizenz:
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/"
+              >CC BY-SA 4.0</a
+            >, Letzter Zugriff: 11.01.2021
+          </p>
 
-        <p>ALDE Party Logo,
-            <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:ALDE-Party-Logo-mitWeissUntergrund-Ausschnitt.png">
-                https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:ALDE-Party-Logo-mitWeissUntergrund-Ausschnitt.png
+          <p>
+            ALDE Party Logo,
+            <a
+              href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:ALDE-Party-Logo-mitWeissUntergrund-Ausschnitt.png"
+            >
+              https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:ALDE-Party-Logo-mitWeissUntergrund-Ausschnitt.png
             </a>
-            , Autor: Unbekannt , Lizenz: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, Letzter Zugriff: 11.01.2021</p>
+            , Autor: Unbekannt , Lizenz:
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/"
+              >CC BY-SA 4.0</a
+            >, Letzter Zugriff: 11.01.2021
+          </p>
 
-        <p>EGP Logo,
-            <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:EGP-Logo_2017.png">
-                https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:EGP-Logo_2017.png
+          <p>
+            EGP Logo,
+            <a
+              href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:EGP-Logo_2017.png"
+            >
+              https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:EGP-Logo_2017.png
             </a>
-            , Autor: Europäische Grüne Partei, Letzter Zugriff: 11.01.2021</p>
+            , Autor: Europäische Grüne Partei, Letzter Zugriff: 11.01.2021
+          </p>
 
-        <p>ECR Party Logo,
-            <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:ECR_Party_logo.png">
-                https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:ECR_Party_logo.png
+          <p>
+            ECR Party Logo,
+            <a
+              href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:ECR_Party_logo.png"
+            >
+              https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:ECR_Party_logo.png
             </a>
-            , Autor: European Conservatives and Reformists Party , Lizenz: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, Letzter Zugriff: 11.01.2021</p>
+            , Autor: European Conservatives and Reformists Party , Lizenz:
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/"
+              >CC BY-SA 4.0</a
+            >, Letzter Zugriff: 11.01.2021
+          </p>
 
-        <p>EL Logo,
-            <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:Europ%C3%A4ische_Linke.svg">
-                https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:Europ%C3%A4ische_Linke.svg
+          <p>
+            EL Logo,
+            <a
+              href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:Europ%C3%A4ische_Linke.svg"
+            >
+              https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:Europ%C3%A4ische_Linke.svg
             </a>
-            , Autor: Unbekannt, Letzter Zugriff: 11.01.2021</p>
+            , Autor: Unbekannt, Letzter Zugriff: 11.01.2021
+          </p>
 
-        <p>EFA Logo,
-            <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Free_Alliance.svg">
-                https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Free_Alliance.svg
+          <p>
+            EFA Logo,
+            <a
+              href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Free_Alliance.svg"
+            >
+              https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Free_Alliance.svg
             </a>
-            , Autor: European Free Alliance, vectorization by T.seppelt, Letzter Zugriff: 11.01.2021</p>
+            , Autor: European Free Alliance, vectorization by T.seppelt, Letzter
+            Zugriff: 11.01.2021
+          </p>
 
-        <p>EDP Party Logo,
-            <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Democratic_Party_Logo.svg">
-                https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Democratic_Party_Logo.svg
+          <p>
+            EDP Party Logo,
+            <a
+              href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Democratic_Party_Logo.svg"
+            >
+              https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Democratic_Party_Logo.svg
             </a>
-            , Autor: Europäische Demokratische Partei, Letzter Zugriff: 11.01.2021</p>
+            , Autor: Europäische Demokratische Partei, Letzter Zugriff:
+            11.01.2021
+          </p>
 
-        <p>ECPM Logo,
-            <a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Christian_Political_Movement_Logo.svg">
-                https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Christian_Political_Movement_Logo.svg
+          <p>
+            ECPM Logo,
+            <a
+              href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Christian_Political_Movement_Logo.svg"
+            >
+              https://de.wikipedia.org/wiki/Europ%C3%A4ische_politische_Partei#/media/Datei:European_Christian_Political_Movement_Logo.svg
             </a>
-            , Autor: Europäische Christliche Politische Bewegung, Letzter Zugriff: 11.01.2021</p>
+            , Autor: Europäische Christliche Politische Bewegung, Letzter
+            Zugriff: 11.01.2021
+          </p>
+        </div>
+        <br />
+      </div>
+      <div class="table-of-contents">
+        <h2>Inhaltsverzeichnis</h2>
+        <ol>
+          <li><a href="#uebersicht">Übersicht über die Parteien</a></li>
+          <li><a href="#bildquellen">Bildquellen</a></li>
+        </ol>
+      </div>
     </div>
-    <br /><hr />
-    <small>Zurück zur <a href="index.html">Startseite</a></small>
-</body>
+    <footer>
+      <hr />
+      <small>Zurück zur <a href="index.html">Startseite</a></small>
+    </footer>
+  </body>
 </html>

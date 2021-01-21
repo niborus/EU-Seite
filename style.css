@@ -1,0 +1,143 @@
+/* Global Grid: Globales Layout für Seiten */
+.gridcontainer {
+  display: grid;
+  /* grid-template-columns: auto; */
+  grid-template-columns: 1fr 3fr;
+  /* grid-template-rows: auto; */
+  grid-template-areas:
+    "header header header"
+    "main main sidebar";
+}
+
+/*Griditem-Klasse für Überschrift*/
+.heading-area {
+  grid-area: header;
+}
+
+/*Griditem-Klasse für Inhalt*/
+.content {
+  grid-area: main;
+}
+
+.content:hover {
+  background-color: blue;
+}
+
+/*Griditem-Klasse für Seitenverzeichnis*/
+.table-of-contents {
+  grid-area: sidebar;
+}
+.table-of-contents:hover {
+  background-color: limegreen;
+}
+
+/* Klasse für Menüleiste mit Flexbox */
+.headerflex {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #ebedef;
+}
+
+.headerflex > div {
+  font-size: x-large;
+  max-height: 50px;
+  min-width: 50px;
+  width: auto;
+  padding: 10px;
+}
+
+.headerflex a {
+  color: inherit;
+  text-decoration: inherit;
+  font-style: inherit;
+  font-size: inherit;
+}
+
+.headerflex img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.headerflex > div:nth-child(1) {
+  height: 50px;
+}
+
+/* Klasse für "die EU", da vom Rest verschieden*/
+.headerflex > div:nth-child(2) {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.headerflex > div:hover {
+  background-color: green;
+}
+
+/* Flexbox Fußzeile*/
+footer {
+  display: flex;
+  background: #ebedef;
+  width: 100%;
+  padding: 20px;
+  font-size: large;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Parteien */
+/* Container für Schatten der Parteien Tabelle*/
+.parteienTabelleContainer {
+  display: table;
+  box-shadow: 10px 10px 10px #ccc;
+}
+
+/*Parteien Tabelle */
+.parteienTabelle {
+  border-collapse: collapse;
+}
+
+/* Anpassungen zu farblichen und sonstigen Darstellung in der Parteien Tabelle */
+.parteienTabelle li {
+  list-style-type: circle;
+}
+.parteienTabelle > thead > tr {
+  background-color: #ccc;
+}
+.parteienTabelle > tbody > tr {
+  background-color: #ddd;
+}
+.parteienTabelle > tbody > tr:nth-child(odd) {
+  background-color: #eee;
+}
+
+td.EVP {
+  background-color: #99ccff;
+}
+td.SPE {
+  background-color: #ffcccc;
+}
+td.ALDE {
+  background-color: #ffff99;
+}
+td.IDP {
+  background-color: #6a7999;
+}
+td.EGP {
+  background-color: #9bd29b;
+}
+td.ECR {
+  background-color: #5597c4;
+}
+td.EL {
+  background-color: #d2a6bf;
+}
+td.EFA {
+  background-color: #af50cf;
+}
+td.EDP {
+  background-color: #f0c67d;
+}
+td.ECPM {
+  background-color: #7678b3;
+}

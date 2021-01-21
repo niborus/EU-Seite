@@ -1,104 +1,173 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>EU Quiz</title>
-</head>
-<body>
+  </head>
+  <body>
+    <header class="headerflex">
+      <div>
+        <a href="index.html"><img src="images/flagge.png" alt="flagge" /></a>
+      </div>
+      <div>
+        <a href="index.html">Die EU</a>
+      </div>
+      <div>
+        <a href="organe.html">Organe</a>
+      </div>
+      <div>
+        <a href="mitgliedsstaaten.html">Mitgliedsstaaten</a>
+      </div>
+      <div>
+        <a href="parteien.html">Parteien</a>
+      </div>
+      <div>
+        <a href="quiz.html">Quiz</a>
+      </div>
+    </header>
     <h1>EU-Quiz?</h1>
     <div class="content">
-        In diesem Quiz möchten testen wir dein Wissen rund um die EU? <br />
-        Bist du bereit, die Herausforderung anzugehen?
+      In diesem Quiz möchten testen wir dein Wissen rund um die EU? <br />
+      Bist du bereit, die Herausforderung anzugehen?
     </div>
     <div class="quiz">
-        <form action="quiz-solutions.html" method="get">
-            <div class="quiz-elements">
-                <div class="quiz-element">
-                    <div class="quiz-element-header">
-                        <h2>Frage 1:</h2>
-                    </div>
-                    <div class="quiz-element-question">
-                        <label for="quiz-element-staate_exit">Welcher Staat ist vom Jahreswechsel 2020/2021 aus der EU ausgetreten?</label>
-                    </div>
-                    <div class="quiz-element-input">
-                        <div class="quiz-element-input-text">
-                            <input id="quiz-element-staate_exit" type="text" name="staate_exit" />
-                        </div>
-                    </div>
-                </div>
-                <div class="quiz-element">
-                    <div class="quiz-element-header">
-                        <h2>Frage 2:</h2>
-                    </div>
-                    <div class="quiz-element-question">
-                        <label for="quiz-element-number_staats">Wie viele Staaten sind im Januar 2021 teil der EU?</label>
-                    </div>
-                    <div class="quiz-element-input">
-                        <div class="quiz-element-input-number">
-                            <input id="quiz-element-number_staats" type="number" name="number_staats" min="0" max="99" />
-                        </div>
-                    </div>
-                </div>
-                <!-- Es gibt den Rat der EU, den Europäischer Rat und den Europarat. -->
-                <div class="quiz-element">
-                    <div class="quiz-element-header">
-                        <h2>Frage 3:</h2>
-                    </div>
-                    <div class="quiz-element-question">
-                        Welche der folgenden Institutionen existiert <b>nicht</b>?
-                    </div>
-                    <div class="quiz-element-input">
-                        <table class="quiz-element-input-table quiz-element-not_existing_council-input-table">
-                            <tr>
-                                <td>
-                                    <input type="radio" id="quiz-element-not_existing_council-rat_der_eu" name="not_existing_council" value="rat_der_eu" />
-                                </td>
-                                <td>
-                                    <label for="quiz-element-not_existing_council-rat_der_eu">Rat der EU</label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="radio" id="quiz-element-not_existing_council-europäischer_rat" name="not_existing_council" value="europäischer_rat" />
-                                </td>
-                                <td>
-                                    <label for="quiz-element-not_existing_council-europäischer_rat">Europäischer Rat</label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="radio" id="quiz-element-not_existing_council-eu_rat" name="not_existing_council" value="eu_rat" />
-                                </td>
-                                <td>
-                                    <label for="quiz-element-not_existing_council-eu_rat">EU-Rat</label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="radio" id="quiz-element-not_existing_council-europarat" name="not_existing_council" value="europarat" />
-                                </td>
-                                <td>
-                                    <label for="quiz-element-not_existing_council-europarat">Europarat</label>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+      <form action="quiz-solutions.html" method="get">
+        <div class="quiz-elements">
+          <div class="quiz-element">
+            <div class="quiz-element-header">
+              <h2>Frage 1:</h2>
             </div>
-            <div class="quiz-footer">
-                <p class="quiz-footer-text">
-                    Wenn du fertig bist, kannst du deine Antworten überprüfen. Falls du jedoch von vorne anfangen
-                    möchtest kannst du deine Antworten auch zurücksetzten.
-                </p>
-                <div class="quiz-footer-buttons">
-                    <input type="submit" value="Antworten überprüfen" />
-                    <input type="reset" value="Antworten zurücksetzten" />
-                </div>
+            <div class="quiz-element-question">
+              <label for="quiz-element-staate_exit"
+                >Welcher Staat ist vom Jahreswechsel 2020/2021 aus der EU
+                ausgetreten?</label
+              >
             </div>
-        </form>
+            <div class="quiz-element-input">
+              <div class="quiz-element-input-text">
+                <input
+                  id="quiz-element-staate_exit"
+                  type="text"
+                  name="staate_exit"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="quiz-element">
+            <div class="quiz-element-header">
+              <h2>Frage 2:</h2>
+            </div>
+            <div class="quiz-element-question">
+              <label for="quiz-element-number_staats"
+                >Wie viele Staaten sind im Januar 2021 teil der EU?</label
+              >
+            </div>
+            <div class="quiz-element-input">
+              <div class="quiz-element-input-number">
+                <input
+                  id="quiz-element-number_staats"
+                  type="number"
+                  name="number_staats"
+                  min="0"
+                  max="99"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Es gibt den Rat der EU, den Europäischer Rat und den Europarat. -->
+          <div class="quiz-element">
+            <div class="quiz-element-header">
+              <h2>Frage 3:</h2>
+            </div>
+            <div class="quiz-element-question">
+              Welche der folgenden Institutionen existiert <b>nicht</b>?
+            </div>
+            <div class="quiz-element-input">
+              <table
+                class="quiz-element-input-table quiz-element-not_existing_council-input-table"
+              >
+                <tr>
+                  <td>
+                    <input
+                      type="radio"
+                      id="quiz-element-not_existing_council-rat_der_eu"
+                      name="not_existing_council"
+                      value="rat_der_eu"
+                    />
+                  </td>
+                  <td>
+                    <label for="quiz-element-not_existing_council-rat_der_eu"
+                      >Rat der EU</label
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="radio"
+                      id="quiz-element-not_existing_council-europäischer_rat"
+                      name="not_existing_council"
+                      value="europäischer_rat"
+                    />
+                  </td>
+                  <td>
+                    <label
+                      for="quiz-element-not_existing_council-europäischer_rat"
+                      >Europäischer Rat</label
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="radio"
+                      id="quiz-element-not_existing_council-eu_rat"
+                      name="not_existing_council"
+                      value="eu_rat"
+                    />
+                  </td>
+                  <td>
+                    <label for="quiz-element-not_existing_council-eu_rat"
+                      >EU-Rat</label
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="radio"
+                      id="quiz-element-not_existing_council-europarat"
+                      name="not_existing_council"
+                      value="europarat"
+                    />
+                  </td>
+                  <td>
+                    <label for="quiz-element-not_existing_council-europarat"
+                      >Europarat</label
+                    >
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="quiz-footer">
+          <p class="quiz-footer-text">
+            Wenn du fertig bist, kannst du deine Antworten überprüfen. Falls du
+            jedoch von vorne anfangen möchtest kannst du deine Antworten auch
+            zurücksetzten.
+          </p>
+          <div class="quiz-footer-buttons">
+            <input type="submit" value="Antworten überprüfen" />
+            <input type="reset" value="Antworten zurücksetzten" />
+          </div>
+        </div>
+      </form>
     </div>
-    <br /><hr />
+    <br />
+    <hr />
     <small>Zurück zur <a href="index.html">Startseite</a></small>
-</body>
+  </body>
 </html>
