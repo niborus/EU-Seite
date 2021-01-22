@@ -1,17 +1,24 @@
+/* GITHUB:https://github.com/niborus/EU-Seite */
+
 /* Global Grid: Globales Layout für Seiten */
 .gridcontainer {
   display: grid;
-  /* grid-template-columns: auto; */
-  grid-template-columns: 1fr 3fr;
-  /* grid-template-rows: auto; */
   grid-template-areas:
-    "header header header"
-    "main main sidebar";
+    "header"
+    "sidebar"
+    "main"
+    "footer";
 }
 
-/*Griditem-Klasse für Überschrift*/
-.heading-area {
-  grid-area: header;
+@media (min-width: 1000px) {
+  .gridcontainer {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-areas:
+    "header header"
+    "main sidebar"
+    "footer footer";
+  }
 }
 
 /*Griditem-Klasse für Inhalt*/
@@ -19,20 +26,13 @@
   grid-area: main;
 }
 
-.content:hover {
-  background-color: blue;
-}
-
 /*Griditem-Klasse für Seitenverzeichnis*/
-.table-of-contents {
+.sidebar_container {
   grid-area: sidebar;
 }
-.table-of-contents:hover {
-  background-color: limegreen;
-}
 
-/* Klasse für Menüleiste mit Flexbox */
-.headerflex {
+header {
+  grid-area: header;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -40,7 +40,7 @@
   background-color: #ebedef;
 }
 
-.headerflex > div {
+header > div {
   font-size: x-large;
   max-height: 50px;
   min-width: 50px;
@@ -48,69 +48,72 @@
   padding: 10px;
 }
 
-.headerflex a {
+header a {
   color: inherit;
   text-decoration: inherit;
   font-style: inherit;
   font-size: inherit;
 }
 
-.headerflex img {
+header img {
   max-width: 100%;
   max-height: 100%;
 }
 
-.headerflex > div:nth-child(1) {
+header > div:nth-child(1) {
   height: 50px;
 }
 
 /* Klasse für "die EU", da vom Rest verschieden*/
-.headerflex > div:nth-child(2) {
+header > div:nth-child(2) {
   font-size: xx-large;
   font-weight: bold;
 }
 
-.headerflex > div:hover {
-  background-color: green;
+header > div:hover {
+  background-color: #d2d5d9;
 }
 
 /* Flexbox Fußzeile*/
 footer {
   display: flex;
   background: #ebedef;
-  width: 100%;
   padding: 20px;
   font-size: large;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-start;
+  grid-area: footer;
 }
 
-/* Parteien */
-/* Container für Schatten der Parteien Tabelle*/
-.parteienTabelleContainer {
+/* Standard Tabelle */
+/* Container für Schatten der Tabelle*/
+.standard_table_container {
+  padding-top: 10px;
   display: table;
   box-shadow: 10px 10px 10px #ccc;
 }
 
-/*Parteien Tabelle */
-.parteienTabelle {
+/* Tabelle */
+.standard_table {
   border-collapse: collapse;
 }
 
-/* Anpassungen zu farblichen und sonstigen Darstellung in der Parteien Tabelle */
-.parteienTabelle li {
+/* Anpassungen zur Darstellung der Standard Tabelle */
+.standard_table li {
   list-style-type: circle;
 }
-.parteienTabelle > thead > tr {
+.standard_table > thead > tr {
   background-color: #ccc;
 }
-.parteienTabelle > tbody > tr {
+.standard_table > tbody > tr {
   background-color: #ddd;
 }
-.parteienTabelle > tbody > tr:nth-child(odd) {
+.standard_table > tbody > tr:nth-child(odd) {
   background-color: #eee;
 }
 
+/* Anpassungen der Farbe der Parteien Tabelle */
 td.EVP {
   background-color: #99ccff;
 }
