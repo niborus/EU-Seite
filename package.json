@@ -1,0 +1,15 @@
+{
+  "name": "eu-seite",
+  "version": "1.0.0",
+  "description": "EU-Website for HWR on Node.js",
+  "author": {
+    "name": "Projektgruppe B5"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+}
