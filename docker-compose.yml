@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   local:
-    build: .
+    image: "niborus/eu-seite:latest"
     working_dir: '/usr/src/app'
     volumes:
       - '.:/usr/src/app'
@@ -12,7 +12,7 @@ services:
     command: '../bootup.sh l'
 
   git:
-    build: .
+    image: "niborus/eu-seite:latest"
     working_dir: '/usr/src/app'
     ports:
       - "8080:8080"
