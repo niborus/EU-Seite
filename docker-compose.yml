@@ -1,21 +1,13 @@
 version: "3.8"
 services:
-  local:
+  web_app:
+    #build: .
     image: "niborus/eu-seite:latest"
-    working_dir: '/usr/src/app'
+    working_dir: '/usr/src'
     volumes:
-      - '.:/usr/src/app'
+      - '.:/usr/src/app_local'
     ports:
-      - "8080:8080"
-    stdin_open: true # docker run -i
-    tty: true        # docker run -t
-    command: '../bootup.sh l'
-
-  git:
-    image: "niborus/eu-seite:latest"
-    working_dir: '/usr/src/app'
-    ports:
-      - "8080:8080"
-    stdin_open: true # docker run -i
-    tty: true        # docker run -t
-    command: '../bootup.sh g'
+      - '8080:8080'
+    #stdin_open: true # docker run -i
+    #tty: true        # docker run -t
+    command: "./bootup.sh ${REPOSITORY}"
