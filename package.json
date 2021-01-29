@@ -11,5 +11,6 @@
   },
   "dependencies": {
     "express": "^4.16.1"
-  }
+  },
+  "repository": "github:niborus/EU-Seite"
 }

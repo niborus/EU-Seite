@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  local:
+    build: .
+    working_dir: '/usr/src/app'
+    volumes:
+      - '.:/usr/src/app'
+    ports:
+      - "8080:8080"
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    command: '../bootup.sh l'
+
+  git:
+    build: .
+    working_dir: '/usr/src/app'
+    ports:
+      - "8080:8080"
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    command: '../bootup.sh g'
