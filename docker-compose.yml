@@ -2,7 +2,7 @@ version: "3.8"
 services:
   web_app:
     #build: .
-    image: "niborus/eu-seite:latest"
+    image: "library/node:14"
     working_dir: '/usr/src'
     volumes:
       - '.:/usr/src/app_local'
@@ -10,4 +10,4 @@ services:
       - '8080:8080'
     #stdin_open: true # docker run -i
     #tty: true        # docker run -t
-    command: "./bootup.sh ${REPOSITORY}"
+    command: "/usr/src/app_local/bootup.sh ${REPOSITORY}"

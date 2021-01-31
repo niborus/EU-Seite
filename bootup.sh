@@ -17,4 +17,3 @@ echo "Installing package.json"
 npm install
 echo "Starting server. Hit ^C to terminate the process!"
 node server.js
-echo Breakpoint
