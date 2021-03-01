@@ -1,4 +1,22 @@
-import './helper_functions';
+function site_name() {
+    if (window.location.pathname === '/') {
+        return 'index';
+    } else {
+        const split_path = window.location.pathname.split('/');
+        const file_name = split_path[split_path.length - 1];
+        return file_name.split('.').slice(0, -1).join('.');
+    }
+}
+
+function connect_to_database_with_body(request, data= {}) {
+    data["ref_site"] = window.location.pathname;
+    request.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    request.send(JSON.stringify(data))
+}
+
+function connect_to_database_without_body(request) {
+    request.send(null);
+}
 
 function send_fav_to_database(request, method) {
     request.open(method, '/favorites');
@@ -70,8 +88,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         send_fav_to_database(request, 'DELETE');
     }
 
-    star.addEventListener("click", on_star_click);
-    function on_star_click() {
+    star.addEventListener("click", function on_star_click() {
         if (star.innerText === '\u2606') {
             star.innerText = '\u231B';
             post_fav_to_database();
@@ -79,5 +96,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
             star.innerText = '\u231B';
             delete_fav_from_database();
         }
-    }
+    });
 });

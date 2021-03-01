@@ -1,5 +1,3 @@
-import './helper_functions';
-
 document.addEventListener("DOMContentLoaded", function(event) {
     function get_fav_from_database() {
         const request = new XMLHttpRequest();
@@ -12,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
         request.open('GET', '/favorites');
         request.responseType = 'json';
-        connect_to_database_without_body(request);
+        request.send(null);
     }
     function get_most_from_database() {
         const request = new XMLHttpRequest();
@@ -25,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
         request.open('GET', '/access-count');
         request.responseType = 'json';
-        connect_to_database_without_body(request);
+        request.send(null);
     }
     get_fav_from_database();
     get_most_from_database();
