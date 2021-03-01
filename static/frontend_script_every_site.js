@@ -1,22 +1,4 @@
-function site_name() {
-    if (window.location.pathname === '/') {
-        return 'index';
-    } else {
-        const split_path = window.location.pathname.split('/');
-        const file_name = split_path[split_path.length - 1];
-        return file_name.split('.').slice(0, -1).join('.');
-    }
-}
-
-function connect_to_database_with_body(request, data= {}) {
-    data["ref_site"] = window.location.pathname;
-    request.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-    request.send(JSON.stringify(data))
-}
-
-function connect_to_database_without_body(request) {
-    request.send(null);
-}
+import './helper_functions';
 
 function send_fav_to_database(request, method) {
     request.open(method, '/favorites');
@@ -33,8 +15,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         const request = new XMLHttpRequest();
         request.onload = function onload() {
             if (request.status < 300) {
-                console.log(request.response);
-                console.log(site_name());
                 if (site_name() in request.response) {
                     star.innerText = '\u2605';
                 }
