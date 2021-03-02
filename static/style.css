@@ -144,3 +144,13 @@ td.EDP {
 td.ECPM {
   background-color: #7678b3;
 }
+
+#star_button {
+  background-color: transparent; /* Transparent */
+  border: none;
+  color: darkgoldenrod;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 32px;
+}

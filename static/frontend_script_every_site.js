@@ -33,9 +33,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
         const request = new XMLHttpRequest();
         request.onload = function onload() {
             if (request.status < 300) {
-                if (site_name() in request.response) {
-                    star.innerText = '\u2605';
-                }
+                const my_site_name = site_name();
+                request.response.forEach(function (site) {
+                    if (site['site_name'] === my_site_name) {
+                        star.innerText = '\u2605';
+                    }
+                })
             }
         }
         request.open('GET', '/favorites');
