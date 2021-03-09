@@ -26,6 +26,31 @@ function send_fav_to_database(request, method) {
     connect_to_database_with_body(request, data);
 }
 
+function create_comment_table_row(username, content, is_me=false) {
+    let comment_username_me = "";
+    if (is_me===true) {
+        comment_username_me = " comment_username_me";
+    }
+    return '<tr><td><div class="comment_username' + comment_username_me + '">' + username + '</div>' +
+        '<div class="comment_content">' + content + '</div></td></tr>';
+}
+
+function onCommentSubmit() {
+    console.log("Checkpoint");
+    var data = {
+        'username': document.getElementById('new_comment_username').value,
+        'content': document.getElementById('new_comment_content').value
+    };
+    const req = new XMLHttpRequest();
+    req.open('POST', '/comment');
+    //connect_to_database_with_body(req, data);
+
+    document.getElementById("comment_table").innerHTML +=
+        create_comment_table_row(data['username'], data['content'], true);
+    document.getElementById('old_comment_field').hidden = false;
+    document.getElementById('comment_reset_button').click();
+}
+
 document.addEventListener("DOMContentLoaded", function(event) {
     const star = document.getElementById("star_button");
 
@@ -56,6 +81,32 @@ document.addEventListener("DOMContentLoaded", function(event) {
         connect_to_database_with_body(request, data);
     }
     post_access_count()
+
+    function load_comments() {
+        const request = new XMLHttpRequest();
+        request.onload = function onload() {
+            console.log("Received Code: " + request.status.toString());
+            if (request.status < 300) {
+                let comment_table = document.getElementById('comment_table');
+                const siteName = site_name();
+                request.response.forEach(function (comment) {
+                    console.log(comment)
+                    if (comment['site_name'] === siteName) {
+                        comment_table.innerHTML +=
+                            create_comment_table_row(comment['username'], comment['content'], comment['me']);
+                    }
+                })
+                if (request.response.length > 0) {
+                    document.getElementById('old_comment_field').hidden = false;
+                }
+            }
+        }
+        request.open('GET', '/comments');
+        request.responseType = 'json';
+        console.log("Start Request.")
+        connect_to_database_without_body(request);
+    }
+    load_comments();
 
     function post_fav_to_database() {
         const request = new XMLHttpRequest();
@@ -90,6 +141,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
         send_fav_to_database(request, 'DELETE');
     }
+
 
     star.addEventListener("click", function on_star_click() {
         if (star.innerText === '\u2606') {
