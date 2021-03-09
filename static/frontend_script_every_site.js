@@ -36,8 +36,7 @@ function create_comment_table_row(username, content, is_me=false) {
 }
 
 function onCommentSubmit() {
-    console.log("Checkpoint");
-    var data = {
+    let data = {
         'username': document.getElementById('new_comment_username').value,
         'content': document.getElementById('new_comment_content').value
     };
@@ -85,12 +84,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function load_comments() {
         const request = new XMLHttpRequest();
         request.onload = function onload() {
-            console.log("Received Code: " + request.status.toString());
             if (request.status < 300) {
                 let comment_table = document.getElementById('comment_table');
                 const siteName = site_name();
                 request.response.forEach(function (comment) {
-                    console.log(comment)
                     if (comment['site_name'] === siteName) {
                         comment_table.innerHTML +=
                             create_comment_table_row(comment['username'], comment['content'], comment['me']);
@@ -103,7 +100,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
         request.open('GET', '/comments');
         request.responseType = 'json';
-        console.log("Start Request.")
         connect_to_database_without_body(request);
     }
     load_comments();
