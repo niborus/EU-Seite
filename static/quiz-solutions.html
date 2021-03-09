@@ -68,6 +68,24 @@
         </div>
         <br />
       </div>
+      <div class="comment">
+        <hr>
+        <h2>Kommentare</h2>
+        <div class="new_comment_div">
+          <form id="new_comment_form">
+            <label for="new_comment_username">Nutzername:</label>
+            <input type="text" id="new_comment_username" name="new_comment_username" required/>
+            <input type="button" value="Senden." onclick="onCommentSubmit()">
+            <input type="reset" value="Löschen" id="comment_reset_button">
+            <br><label for="new_comment_content">Kommentar:</label><br />
+            <textarea id="new_comment_content" required></textarea>
+          </form>
+        </div>
+        <div id="old_comment_field" class="old_comment_field" hidden>
+          <table id="comment_table" class="center old_comments">
+          </table>
+        </div>
+      </div>
       <footer>
         <div>Zurück zur <a href="index.html">Startseite</a></div>
       </footer>

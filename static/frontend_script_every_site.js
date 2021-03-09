@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function post_access_count() {
         const request = new XMLHttpRequest();
         request.open('POST', '/access-count');
-        var data = {
+        let data = {
             'site_name': site_name()
         }
         connect_to_database_with_body(request, data);
