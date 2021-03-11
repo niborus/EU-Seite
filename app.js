@@ -110,6 +110,3 @@ app.get("/access-count", (req, res) => {
 app.listen(PORT, () => {
     console.log(`Example app listening at http://localhost:${PORT}`);
 });
-
-//app.listen(PORT, HOST);
-//console.log(`Running on http://${HOST}:${PORT}`);
