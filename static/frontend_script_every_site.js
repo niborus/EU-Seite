@@ -9,7 +9,7 @@ function site_name() {
 }
 
 function connect_to_database_with_body(request, data= {}) {
-    data["ref_site"] = window.location.pathname;
+    data["site_name"] = site_name()
     request.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
     request.send(JSON.stringify(data))
 }
@@ -20,10 +20,7 @@ function connect_to_database_without_body(request) {
 
 function send_fav_to_database(request, method) {
     request.open(method, '/favorite');
-    const data = {
-        'site_name': site_name(),
-    }
-    connect_to_database_with_body(request, data);
+    connect_to_database_with_body(request, {});
 }
 
 function create_comment_table_row(username, content, is_me=false) {
@@ -71,10 +68,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function post_access_count() {
         const request = new XMLHttpRequest();
         request.open('POST', '/access-count');
-        let data = {
-            'site_name': site_name()
-        }
-        connect_to_database_with_body(request, data);
+        connect_to_database_with_body(request, {});
     }
     post_access_count()
 
