@@ -57,12 +57,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
         const request = new XMLHttpRequest();
         request.onload = function onload() {
             if (request.status < 300) {
-                const my_site_name = site_name();
-                request.response.forEach(function (site) {
-                    if (site['site_name'] === my_site_name) {
-                        star.innerText = '\u2605';
-                    }
-                })
+                if(request.response.includes(site_name())) {
+                    star.innerText = '\u2605';
+                }
             }
         }
         request.open('GET', '/favorites');
