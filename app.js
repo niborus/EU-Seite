@@ -41,27 +41,27 @@ app.use((req, res, next) => {
 app.use("/", express.static(__dirname + "/static"));
 
 app.post("/comment", ((req, res) => {
-    const visitedSite = req.body.sitename;
+    const visitedSite = req.body.site_name;
     const commentList = commentsSite.get(visitedSite);
     let comment = {
         userId : req.cookies.userId,
-        userName: req.body.name,
-        comment : req.body.comment
+        userName: req.body.username,
+        comment : req.body.content
     }
     commentList.push(comment);
-    console.log(commentsSite.get(req.body.sitename));
+    console.log(commentsSite.get(req.body.site_name));
     res.sendStatus(200);
 }));
 
 app.get("/comment", ((req, res) => {
-    const visitedSite = req.body.sitename;
+    const visitedSite = req.body.site_name;
     const commentList = commentsSite.get(visitedSite);
     console.log(commentList);
     res.send(commentList.toJSON());
 }))
 
 app.post("/favorite", (req, res) => {
-    const visitedSite = req.body.sitename;
+    const visitedSite = req.body.site_name;
     const currentState = usersFavorites.get(req.cookies.userId).get(visitedSite);
     usersFavorites.get(req.cookies.userId).set(visitedSite, !currentState);
     res.sendStatus(200);
@@ -81,7 +81,7 @@ app.get("/favorite", (req, res) => {
 
 
 app.post("/access-count", (req, res) => {
-    const visitedSite = req.body.sitename;
+    const visitedSite = req.body.site_name;
     console.log(users.get(req.cookies.userId).get(visitedSite)[0]);
     users.get(req.cookies.userId).set(visitedSite, [users.get(req.cookies.userId).get(visitedSite)[0] + 1, users.get(req.cookies.userId).get(visitedSite)[1]]);
     console.log(users.get(req.cookies.userId).get(visitedSite)[0]);
