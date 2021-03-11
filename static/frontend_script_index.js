@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 document.getElementById("fav_list").innerHTML = fav_new_inner_html;
             }
         }
-        request.open('GET', '/favorites');
+        request.open('GET', '/favorite');
         request.responseType = 'json';
         request.send(null);
     }

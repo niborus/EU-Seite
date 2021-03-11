@@ -19,7 +19,7 @@ function connect_to_database_without_body(request) {
 }
 
 function send_fav_to_database(request, method) {
-    request.open(method, '/favorites');
+    request.open(method, '/favorite');
     const data = {
         'site_name': site_name(),
     }
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 }
             }
         }
-        request.open('GET', '/favorites');
+        request.open('GET', '/favorite');
         request.responseType = 'json';
         connect_to_database_without_body(request);
     }
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 }
             }
         }
-        request.open('GET', '/comments');
+        request.open('GET', '/comment');
         request.responseType = 'json';
         connect_to_database_without_body(request);
     }
