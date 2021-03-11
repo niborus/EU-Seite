@@ -42,7 +42,7 @@ function onCommentSubmit() {
     };
     const req = new XMLHttpRequest();
     req.open('POST', '/comment');
-    //connect_to_database_with_body(req, data);
+    connect_to_database_with_body(req, data);
 
     document.getElementById("comment_table").innerHTML +=
         create_comment_table_row(data['username'], data['content'], true);
