@@ -75,21 +75,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function load_comments() {
         const request = new XMLHttpRequest();
         request.onload = function onload() {
-            if (request.status < 300) {
+            if ((request.status < 300) && (request.response.length > 0)) {
                 let comment_table = document.getElementById('comment_table');
-                const siteName = site_name();
                 request.response.forEach(function (comment) {
-                    if (comment['site_name'] === siteName) {
-                        comment_table.innerHTML +=
-                            create_comment_table_row(comment['username'], comment['content'], comment['me']);
-                    }
+                    comment_table.innerHTML +=
+                        create_comment_table_row(comment['username'], comment['content']);
                 })
-                if (request.response.length > 0) {
-                    document.getElementById('old_comment_field').hidden = false;
-                }
             }
         }
-        request.open('GET', '/comment');
+        request.open('GET', '/comment?site_name=' + site_name());
         request.responseType = 'json';
         connect_to_database_without_body(request);
     }

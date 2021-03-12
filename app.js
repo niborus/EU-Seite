@@ -3,7 +3,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const { v4: uuidv4 } = require("uuid");
 const app = express();
-const PORT = 3000;
+const PORT = 8080;
 //const url = require("url")
 
 app.use(bodyParser.json());
@@ -12,29 +12,40 @@ let List = require("collections/list");
 
 let users = new Map();
 let usersFavorites = new Map();
-let commentsIndex = new List();
-let commentsMitgliedsstaaten = new List();
-let commentsOrgane = new List();
-let commentsParteien = new List();
-let commentsQuiz = new List();
 let commentsSite = new Map();
-commentsSite.set("index", commentsIndex).set("mitgliedstaaten", commentsMitgliedsstaaten).set("organe", commentsOrgane).set("parteien", commentsParteien).set("quiz", commentsQuiz);
+commentsSite
+    .set("index", [])
+    .set("mitgliedstaaten", [])
+    .set("organe", [])
+    .set("parteien", [])
+    .set("quiz-solutions", [])
+    .set("quiz", []);
 
 app.use((req, res, next) => {
-    if (req.cookies.userId === undefined) {
+    const cookieUserId = req.cookies.userId
+    if ((cookieUserId === undefined) || !(users.has(cookieUserId)) || !(usersFavorites.has(cookieUserId))) {
         let userId = uuidv4();
         let accessCounter = new Map();
-        accessCounter.set("index", [0,"Startseite"]).set("mitgliedstaaten", [0, "Mitgliedsstaaten"]).set("organe", [0,"Organe"]).set("parteien", [0, "Parteien"]).set("quiz", [0,"Quiz"]);
+        accessCounter
+            .set("index", 0)
+            .set("mitgliedstaaten", 0)
+            .set("organe", 0)
+            .set("parteien", 0)
+            .set("quiz-solutions", 0)
+            .set("quiz", 0);
         let favoriteSites = new Map();
-        favoriteSites.set("index", false).set("mitgliedstaaten", false).set("organe", false).set("parteien", false).set("quiz", false);
+        favoriteSites
+            .set("index", false)
+            .set("mitgliedstaaten", false)
+            .set("organe", false)
+            .set("parteien", false)
+            .set("quiz-solutions", false)
+            .set("quiz", false);
         users.set(userId,accessCounter);
         usersFavorites.set(userId, favoriteSites);
         res.cookie("userId", userId);
-        res.redirect("/index.html");
-        res.send();
-    } else {
-        next();
     }
+    next();
 
 });
 
@@ -45,26 +56,31 @@ app.post("/comment", ((req, res) => {
     const commentList = commentsSite.get(visitedSite);
     let comment = {
         userId : req.cookies.userId,
-        userName: req.body.username,
-        comment : req.body.content
+        username: req.body.username,
+        content : req.body.content
     }
     commentList.push(comment);
+    console.log("Pos 1:")
     console.log(commentsSite.get(req.body.site_name));
-    res.sendStatus(200);
+    res.sendStatus(201);
 }));
 
 app.get("/comment", ((req, res) => {
-    const visitedSite = req.body.site_name;
+    const visitedSite = req.query.site_name;
     const commentList = commentsSite.get(visitedSite);
+    console.log("Pos 2:")
     console.log(commentList);
-    res.send(commentList.toJSON());
+    res.send(commentList);
 }))
 
 app.post("/favorite", (req, res) => {
-    const visitedSite = req.body.site_name;
-    const currentState = usersFavorites.get(req.cookies.userId).get(visitedSite);
-    usersFavorites.get(req.cookies.userId).set(visitedSite, !currentState);
-    res.sendStatus(200);
+    usersFavorites.get(req.cookies.userId).set(req.body.site_name, true)
+    res.sendStatus(201);
+});
+
+app.delete("/favorite", (req, res) => {
+    usersFavorites.get(req.cookies.userId).set(req.body.site_name, false)
+    res.sendStatus(201);
 });
 
 app.get("/favorite", (req, res) => {
@@ -75,6 +91,7 @@ app.get("/favorite", (req, res) => {
             responseData.push(key);
         }
     },usersFavorites.get(req.cookies.userId));
+    console.log("Pos 3:")
     console.log(responseData);
     res.send(responseData);
 })
@@ -82,31 +99,27 @@ app.get("/favorite", (req, res) => {
 
 app.post("/access-count", (req, res) => {
     const visitedSite = req.body.site_name;
-    console.log(users.get(req.cookies.userId).get(visitedSite)[0]);
-    users.get(req.cookies.userId).set(visitedSite, [users.get(req.cookies.userId).get(visitedSite)[0] + 1, users.get(req.cookies.userId).get(visitedSite)[1]]);
-    console.log(users.get(req.cookies.userId).get(visitedSite)[0]);
-    res.sendStatus(200);
+    console.log("Pos 4&5:")
+    console.log(users.get(req.cookies.userId).get(visitedSite));
+    users.get(req.cookies.userId)
+        .set(visitedSite, users.get(req.cookies.userId).get(visitedSite) + 1);
+    console.log(users.get(req.cookies.userId).get(visitedSite));
+    res.sendStatus(201);
 });
 
 app.get("/access-count", (req, res) => {
-    let maxCount = -1;
-    let maxSite = "";
-    console.log("test");
-    users.get(req.cookies.userId).forEach(  (value, key) => {
-      if (value[0] > maxCount) {
-          console.log(value[0]);
-          console.log(key);
-          maxCount = value[0];
-          maxSite = key;
-      }
-    },users.get(req.cookies.userId));
-    res.send(JSON.stringify(
-        {maxSite:{
-            "title":users.get(req.cookies.userId).get(maxSite)[1],
-            "count": maxCount
-    }}));
+    console.log("Pos 6:")
+    console.log(req.cookies.userId)
+    let response_array = []
+    users.get(req.cookies.userId).forEach((value, key) => {
+        response_array.push({
+            "site_name": key,
+            "count": value
+        })
+    });
+    res.send(response_array);
 })
 
 app.listen(PORT, () => {
-    console.log(`Example app listening at http://localhost:${PORT}`);
+    console.log(`App listening at http://localhost:${PORT}`);
 });
