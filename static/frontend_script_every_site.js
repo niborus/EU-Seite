@@ -9,7 +9,7 @@ function site_name() {
 }
 
 function connect_to_database_with_body(request, data= {}) {
-    data["ref_site"] = window.location.pathname;
+    data["site_name"] = site_name()
     request.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
     request.send(JSON.stringify(data))
 }
@@ -19,11 +19,8 @@ function connect_to_database_without_body(request) {
 }
 
 function send_fav_to_database(request, method) {
-    request.open(method, '/favorites');
-    const data = {
-        'site_name': site_name(),
-    }
-    connect_to_database_with_body(request, data);
+    request.open(method, '/favorite');
+    connect_to_database_with_body(request, {});
 }
 
 function create_comment_table_row(username, content, is_me=false) {
@@ -57,15 +54,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
         const request = new XMLHttpRequest();
         request.onload = function onload() {
             if (request.status < 300) {
-                const my_site_name = site_name();
-                request.response.forEach(function (site) {
-                    if (site['site_name'] === my_site_name) {
-                        star.innerText = '\u2605';
-                    }
-                })
+                if(request.response.includes(site_name())) {
+                    star.innerText = '\u2605';
+                }
             }
         }
-        request.open('GET', '/favorites');
+        request.open('GET', '/favorite');
         request.responseType = 'json';
         connect_to_database_without_body(request);
     }
@@ -74,31 +68,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function post_access_count() {
         const request = new XMLHttpRequest();
         request.open('POST', '/access-count');
-        let data = {
-            'site_name': site_name()
-        }
-        connect_to_database_with_body(request, data);
+        connect_to_database_with_body(request, {});
     }
     post_access_count()
 
     function load_comments() {
         const request = new XMLHttpRequest();
         request.onload = function onload() {
-            if (request.status < 300) {
+            if ((request.status < 300) && (request.response.length > 0)) {
                 let comment_table = document.getElementById('comment_table');
-                const siteName = site_name();
                 request.response.forEach(function (comment) {
-                    if (comment['site_name'] === siteName) {
-                        comment_table.innerHTML +=
-                            create_comment_table_row(comment['username'], comment['content'], comment['me']);
-                    }
+                    comment_table.innerHTML +=
+                        create_comment_table_row(comment['username'], comment['content'], comment['me']);
                 })
-                if (request.response.length > 0) {
-                    document.getElementById('old_comment_field').hidden = false;
-                }
+                document.getElementById('old_comment_field').hidden = false;
             }
         }
-        request.open('GET', '/comments');
+        request.open('GET', '/comment?site_name=' + site_name());
         request.responseType = 'json';
         connect_to_database_without_body(request);
     }
