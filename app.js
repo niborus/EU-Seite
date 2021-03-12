@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 const { v4: uuidv4 } = require("uuid");
 const app = express();
 const PORT = 8080;
-//const url = require("url")
 
 app.use(bodyParser.json());
 app.use(cookieParser());
