@@ -61,7 +61,6 @@ app.use((req, res, next) => {
     if (self_site != null) {
         const old_count = users.get(userId).get(self_site);
         users.get(userId).set(self_site, old_count+1);
-        console.log(`${self_site}: ${old_count+1}`)
     }
 
     next();
@@ -79,16 +78,12 @@ app.post("/comment", ((req, res) => {
         content : req.body.content
     }
     commentList.push(comment);
-    console.log("Pos 1:");
-    console.log(commentsSite.get(req.body.site_name));
     res.sendStatus(201);
 }));
 
 app.get("/comment", ((req, res) => {
     const visitedSite = req.query.site_name;
     const commentList = commentsSite.get(visitedSite);
-    console.log("Pos 2:");
-    console.log(commentList);
     let response = [];
     commentList.forEach((comment) => {
         response.push({
@@ -118,14 +113,10 @@ app.get("/favorite", (req, res) => {
             responseData.push(key);
         }
     },usersFavorites.get(req.cookies.userId));
-    console.log("Pos 3:");
-    console.log(responseData);
     res.send(responseData);
 })
 
 app.get("/access-count", (req, res) => {
-    console.log("Pos 6:");
-    console.log(req.cookies.userId);
     let response_array = [];
     users.get(req.cookies.userId).forEach((value, key) => {
         if (value > 0) {
