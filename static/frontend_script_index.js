@@ -1,6 +1,6 @@
 const NAME_DICT = {
     "index": "Startseite",
-    "mitgliedstaaten": "Mitgliedsstaaten",
+    "mitgliedstaaten": "Mitgliedstaaten",
     "organe": "Organe der EU",
     "parteien": "Parteien",
     "quiz": "Quiz",

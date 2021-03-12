@@ -8,7 +8,6 @@ const PORT = 8080;
 
 app.use(bodyParser.json());
 app.use(cookieParser());
-let List = require("collections/list");
 
 let users = new Map();
 let usersFavorites = new Map();
@@ -21,10 +20,22 @@ commentsSite
     .set("quiz-solutions", [])
     .set("quiz", []);
 
+function site_name(pathname) {
+    if (pathname === '/') {
+        return 'index';
+    } else if (pathname.endsWith(".html")) {
+        const split_path = pathname.split('/');
+        const file_name = split_path[split_path.length - 1];
+        return file_name.split('.').slice(0, -1).join('.');
+    } else {
+        return null;
+    }
+}
+
 app.use((req, res, next) => {
-    const cookieUserId = req.cookies.userId;
-    if ((cookieUserId === undefined) || !(users.has(cookieUserId)) || !(usersFavorites.has(cookieUserId))) {
-        let userId = uuidv4();
+    let userId = req.cookies.userId;
+    if ((userId === undefined) || !(users.has(userId)) || !(usersFavorites.has(userId))) {
+        userId = uuidv4();
         let accessCounter = new Map();
         accessCounter
             .set("index", 0)
@@ -45,6 +56,14 @@ app.use((req, res, next) => {
         usersFavorites.set(userId, favoriteSites);
         res.cookie("userId", userId);
     }
+
+    const self_site = site_name(req.path)
+    if (self_site != null) {
+        const old_count = users.get(userId).get(self_site);
+        users.get(userId).set(self_site, old_count+1);
+        console.log(`${self_site}: ${old_count+1}`)
+    }
+
     next();
 
 });
@@ -103,17 +122,6 @@ app.get("/favorite", (req, res) => {
     console.log(responseData);
     res.send(responseData);
 })
-
-
-app.post("/access-count", (req, res) => {
-    const visitedSite = req.body.site_name;
-    console.log("Pos 4&5:");
-    console.log(users.get(req.cookies.userId).get(visitedSite));
-    let old_count = users.get(req.cookies.userId).get(visitedSite)
-    users.get(req.cookies.userId).set(visitedSite, old_count + 1);
-    console.log(users.get(req.cookies.userId).get(visitedSite));
-    res.sendStatus(201);
-});
 
 app.get("/access-count", (req, res) => {
     console.log("Pos 6:");
