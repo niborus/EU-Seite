@@ -79,8 +79,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 let comment_table = document.getElementById('comment_table');
                 request.response.forEach(function (comment) {
                     comment_table.innerHTML +=
-                        create_comment_table_row(comment['username'], comment['content']);
+                        create_comment_table_row(comment['username'], comment['content'], comment['me']);
                 })
+                document.getElementById('old_comment_field').hidden = false;
             }
         }
         request.open('GET', '/comment?site_name=' + site_name());

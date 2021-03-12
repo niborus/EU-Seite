@@ -22,7 +22,7 @@ commentsSite
     .set("quiz", []);
 
 app.use((req, res, next) => {
-    const cookieUserId = req.cookies.userId
+    const cookieUserId = req.cookies.userId;
     if ((cookieUserId === undefined) || !(users.has(cookieUserId)) || !(usersFavorites.has(cookieUserId))) {
         let userId = uuidv4();
         let accessCounter = new Map();
@@ -60,7 +60,7 @@ app.post("/comment", ((req, res) => {
         content : req.body.content
     }
     commentList.push(comment);
-    console.log("Pos 1:")
+    console.log("Pos 1:");
     console.log(commentsSite.get(req.body.site_name));
     res.sendStatus(201);
 }));
@@ -68,18 +68,26 @@ app.post("/comment", ((req, res) => {
 app.get("/comment", ((req, res) => {
     const visitedSite = req.query.site_name;
     const commentList = commentsSite.get(visitedSite);
-    console.log("Pos 2:")
+    console.log("Pos 2:");
     console.log(commentList);
-    res.send(commentList);
+    let response = [];
+    commentList.forEach((comment) => {
+        response.push({
+            "content": comment['content'],
+            "username": comment['username'],
+            "me": comment['userId'] === req.cookies.userId,
+        });
+    });
+    res.send(response);
 }))
 
 app.post("/favorite", (req, res) => {
-    usersFavorites.get(req.cookies.userId).set(req.body.site_name, true)
+    usersFavorites.get(req.cookies.userId).set(req.body.site_name, true);
     res.sendStatus(201);
 });
 
 app.delete("/favorite", (req, res) => {
-    usersFavorites.get(req.cookies.userId).set(req.body.site_name, false)
+    usersFavorites.get(req.cookies.userId).set(req.body.site_name, false);
     res.sendStatus(201);
 });
 
@@ -91,7 +99,7 @@ app.get("/favorite", (req, res) => {
             responseData.push(key);
         }
     },usersFavorites.get(req.cookies.userId));
-    console.log("Pos 3:")
+    console.log("Pos 3:");
     console.log(responseData);
     res.send(responseData);
 })
@@ -99,24 +107,28 @@ app.get("/favorite", (req, res) => {
 
 app.post("/access-count", (req, res) => {
     const visitedSite = req.body.site_name;
-    console.log("Pos 4&5:")
+    console.log("Pos 4&5:");
     console.log(users.get(req.cookies.userId).get(visitedSite));
-    users.get(req.cookies.userId)
-        .set(visitedSite, users.get(req.cookies.userId).get(visitedSite) + 1);
+    let old_count = users.get(req.cookies.userId).get(visitedSite)
+    users.get(req.cookies.userId).set(visitedSite, old_count + 1);
     console.log(users.get(req.cookies.userId).get(visitedSite));
     res.sendStatus(201);
 });
 
 app.get("/access-count", (req, res) => {
-    console.log("Pos 6:")
-    console.log(req.cookies.userId)
-    let response_array = []
+    console.log("Pos 6:");
+    console.log(req.cookies.userId);
+    let response_array = [];
     users.get(req.cookies.userId).forEach((value, key) => {
-        response_array.push({
-            "site_name": key,
-            "count": value
-        })
+        if (value > 0) {
+            response_array.push({
+                "site_name": key,
+                "count": value
+            });
+        }
     });
+    response_array.sort((site1, site2) => { return site2['count'] - site1['count']; });
+    response_array = response_array.slice(0,3);
     res.send(response_array);
 })
 

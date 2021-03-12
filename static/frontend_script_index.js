@@ -11,10 +11,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function get_fav_from_database() {
         const request = new XMLHttpRequest();
         request.onload = function onload() {
-            if (request.status < 300) {
+            if ((request.status < 300) && (request.response.length > 0)) {
                 let fav_new_inner_html = "";
-                request.response.forEach(function (site) {
-                    let site_name = site['site_name']
+                request.response.forEach(function (site_name) {
                     fav_new_inner_html += `<li><a href='${site_name}.html'>${NAME_DICT[site_name]}</a></li>`;
                 })
                 document.getElementById("fav_list").innerHTML = fav_new_inner_html;
