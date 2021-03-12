@@ -65,13 +65,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
     get_fav_from_database();
 
-    function post_access_count() {
-        const request = new XMLHttpRequest();
-        request.open('POST', '/access-count');
-        connect_to_database_with_body(request, {});
-    }
-    post_access_count()
-
     function load_comments() {
         const request = new XMLHttpRequest();
         request.onload = function onload() {
