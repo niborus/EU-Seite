@@ -8,17 +8,17 @@ else
   echo "Updating apt"
   apt-get update
   echo "Installing required programms"
-  apt-get install -y unzip
+  apt-get install -y git
   if [ -d app_git ]
   then
-    echo "Removing old Project Files"
-    rm -rf app_git
+    cd app_git || exit 1
+    echo "Pull Updates"
+    git pull origin || ( echo -e 'Can not pull changes from origin.\nTry "docker-compose down && docker-compose up"'; exit 1 )
+  else
+    echo "Clone Project"
+    git clone https://github.com/niborus/EU-Seite.git app_git || exit 1
+    cd app_git || exit 1
   fi
-  echo "Download Project"
-  wget -O app_git.zip "https://github.com/niborus/EU-Seite/archive/main.zip" || exit 1
-  echo "Unpack Project"
-  unzip -o -q app_git.zip -d app_git
-  cd app_git || exit 1
 fi
 echo "Installing package.json"
 npm install
