@@ -7,13 +7,21 @@ then
 else
   echo "Updating apt"
   apt-get update
-  echo "Installing git"
-  apt-get install -y git
-  echo "Cloning Project"
-  git clone https://github.com/niborus/EU-Seite.git app_git
+  echo "Installing required programms"
+  apt-get install -y unzip
+  if [ -d app_git ]
+  then
+    echo "Removing old Project Files"
+    rm -rf app_git
+  fi
+  echo "Download Project"
+  wget -O app_git.zip "https://github.com/niborus/EU-Seite/archive/main.zip" || exit 1
+  echo "Unpack Project"
+  unzip -o -q app_git.zip -d app_git
   cd app_git || exit 1
 fi
 echo "Installing package.json"
 npm install
 echo "Starting server. Hit ^C to terminate the process!"
 node app.js
+
