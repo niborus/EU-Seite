@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 cd /usr/src || exit 1
 if [ "$1" = 'local' ]
