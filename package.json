@@ -5,9 +5,9 @@
   "author": {
     "name": "Projektgruppe B5"
   },
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node server.js"
   },
   "repository": "github:niborus/EU-Seite",
   "dependencies": {
