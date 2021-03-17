@@ -5,6 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script src="frontend_script_every_site.js"></script>
+    <script src="frontend_script_index.js"></script>
     <title>Die EU</title>
   </head>
   <body>
@@ -20,13 +22,16 @@
           <a href="organe.html">Organe</a>
         </div>
         <div>
-          <a href="mitgliedsstaaten.html">Mitgliedsstaaten</a>
+          <a href="mitgliedstaaten.html">Mitgliedstaaten</a>
         </div>
         <div>
           <a href="parteien.html">Parteien</a>
         </div>
         <div>
           <a href="quiz.html">Quiz</a>
+        </div>
+        <div>
+          <button type="button" id="star_button">&#x2606;</button>
         </div>
       </header>
       <div class="content">
@@ -65,6 +70,36 @@
           <li><a href="https://de.wikipedia.org/wiki/Europ%C3%A4ische_Union"><i>Wikipedia über die EU</i></a></li>
           <li><a href="https://europa.eu/european-union/index_en"><i>die offizielle Website der EU</i></a></li>
         </ul>
+        <h3>Meine Favoriten</h3>
+        <ul id="fav_list">
+          <li>
+            <i>keine</i>
+          </li>
+        </ul>
+        <h3>Meine am häufigsten Besuchte Seiten:</h3>
+        <ul id="visited_list">
+          <li>
+            <i>keine</i>
+          </li>
+        </ul>
+      </div>
+      <div class="comment">
+        <hr>
+        <h2>Kommentare</h2>
+        <div class="new_comment_div">
+          <form id="new_comment_form">
+            <label for="new_comment_username">Nutzername:</label>
+            <input type="text" id="new_comment_username" name="new_comment_username" required/>
+            <input type="button" value="Senden." onclick="onCommentSubmit()">
+            <input type="reset" value="Löschen" id="comment_reset_button">
+            <br><label for="new_comment_content">Kommentar:</label><br />
+            <textarea id="new_comment_content" required></textarea>
+          </form>
+        </div>
+        <div id="old_comment_field" class="old_comment_field" hidden>
+          <table id="comment_table" class="center old_comments">
+          </table>
+        </div>
       </div>
       <footer>
         <div>Zurück zur <a href="index.html">Startseite</a></div>

@@ -10,4 +10,4 @@ services:
       - '8080:8080'
     #stdin_open: true # docker run -i
     #tty: true        # docker run -t
-    command: "/usr/src/app_local/bootup.sh ${REPOSITORY}"
+    command: "bash -c 'apt-get update && apt-get install dos2unix && dos2unix -n app_local/bootup.sh bootup.sh && bash bootup.sh ${REPOSITORY}'"
